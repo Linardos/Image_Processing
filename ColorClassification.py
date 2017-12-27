@@ -9,12 +9,12 @@ import argparse
 parser = argparse.ArgumentParser(description='Object Classification based on Color')
 parser.add_argument('image', metavar='image',
                     help='path to image')
-parser.add_argument('-C', metavar='color margin', type=int, nargs=3,
-                    help='Input 3 numbers, one for each RGB color. These will be used for thresholding color, Green Blue and Red. By increasing each value you keep pixels with higher intensity to the respective color')
+parser.add_argument('-C', metavar='color_margin', default=[0,0,0], type=int, nargs=3,
+                    help='Input 3 numbers, one for each RGB color. These will be used for thresholding color, Green Blue and Red. By increasing each value you keep pixels with higher intensity to the respective color, default = [0, 0, 0]')
 parser.add_argument('-k1', metavar='Open', type=int, default=[0,0,0], nargs=3, help='Specifies the size of kernel 1 for each color, used for denoising (opening), (default: [0, 0, 0])')
 parser.add_argument('-k2', metavar='Close', type=int, default=[0,0,0], nargs=3,help='Specifies the size of kernel 2 for each color, used for denoising (closing), (default: [0, 0, 0])')
 parser.add_argument('-cells', dest='cells', action='store_true',
-                    help='Set to an alternate mode for recognizing distinct cells (default: False)')
+                    help='Set to an alternate mode for recognizing distinct cells and their nuclei (default: False)')
 
 def main():
     global args
