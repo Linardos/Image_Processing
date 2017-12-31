@@ -185,5 +185,5 @@ def CloseHoles(mask, k1=5, k2=3):
     return(mask)
 
 
-
-main()
+if __name__ == '__main__':
+    main()
